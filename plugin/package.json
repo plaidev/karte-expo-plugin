@@ -32,10 +32,8 @@
     "karte",
     "karte-react-native"
   ],
-  "jest": {
-    "preset": "expo-module-scripts"
-  },
   "devDependencies": {
+    "@types/jest": "^29.5.1",
     "expo": "^47.0.0",
     "expo-module-scripts": "^3.0.7",
     "typescript": "^5.0.4"

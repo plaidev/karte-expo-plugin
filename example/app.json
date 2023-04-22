@@ -27,6 +27,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "@karte/expo-plugin",
+        {
+          "karteInfoPlist": "./Karte-Info.plist"
+        }
+      ]
+    ]
   }
 }
