@@ -1,1 +1,1 @@
-# karte-expo-plugin
+# config-plugin-sample
