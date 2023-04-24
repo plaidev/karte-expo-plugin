@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@karte/expo-plugin": "file:../plugin",
+    "@react-native-karte/core": "^1.4.0",
     "expo": "~48.0.11",
     "expo-splash-screen": "~0.18.1",
     "expo-status-bar": "~1.4.4",
