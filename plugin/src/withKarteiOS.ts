@@ -16,9 +16,9 @@ function addKarteAppDelegateImport(src: any) {
 }
 
 export const withKarteiOS: ConfigPlugin<ConfigProps> = (config, props) => {
-    config = withAppDelegate(config, (config) => {
-        config.modResults.contents = addKarteAppDelegateImport(config.modResults.contents).contents;
-        return config;
-    });
+    // config = withAppDelegate(config, (config) => {
+    //     config.modResults.contents = addKarteAppDelegateImport(config.modResults.contents).contents;
+    //     return config;
+    // });
     return config;
 };
