@@ -7,11 +7,7 @@ public class KarteAppDelegate: ExpoAppDelegateSubscriber {
     return true
   }
 
-//   public func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-//     return RNBranch.application(application, open:url, options:options)
-//   }
-
-//   public func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-//     return RNBranch.continue(userActivity)
-//   }
+  public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    KarteApp.application(app, open: url)
+  }
 }
