@@ -1,4 +1,4 @@
 export type ConfigProps = {
-    karteInfoPlist: string;
-    karteAppKey: string;
+  karteInfoPlist: string;
+  karteAppKey: string;
 };
