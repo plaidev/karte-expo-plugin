@@ -7,6 +7,6 @@ import io.karte.android.KarteApp
 class KarteApplicationLifecycleListener : ApplicationLifecycleListener {
   override fun onCreate(application: Application) {
     super.onCreate(application)
-    KarteApp.setup(self)
+    KarteApp.setup(application)
   }
 }

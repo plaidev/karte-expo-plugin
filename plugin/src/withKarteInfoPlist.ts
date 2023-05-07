@@ -58,4 +58,4 @@ function setKarteInfoPlist(
     });
   }
   return project;
-}
+};

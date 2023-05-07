@@ -32,7 +32,8 @@
       [
         "karte-expo-plugin",
         {
-          "karteInfoPlist": "./Karte-Info.plist"
+          "karteInfoPlist": "./Karte-Info.plist",
+          "karteXml": "./karte.xml"
         }
       ]
     ]
