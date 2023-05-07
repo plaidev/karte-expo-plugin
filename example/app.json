@@ -23,15 +23,14 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.example",
-      "kotlinVersion": "1.6.0"
+      "package": "com.anonymous.example"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       [
-        "karte-expo-plugin",
+        "@karte/expo-plugin",
         {
           "karteInfoPlist": "./Karte-Info.plist"
         }
