@@ -30,7 +30,7 @@
     },
     "plugins": [
       [
-        "@karte/expo-plugin",
+        "karte-expo-plugin",
         {
           "karteInfoPlist": "./Karte-Info.plist"
         }
