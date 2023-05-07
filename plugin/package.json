@@ -1,7 +1,7 @@
 {
-  "name": "@karte/expo-plugin",
+  "name": "karte-expo-plugin",
   "version": "0.0.0",
-  "description": "Config plugin for @karte/react-native package",
+  "description": "Config plugin for karte-react-native package",
   "main": "build/withKarte.js",
   "types": "build/withKarte.d.ts",
   "scripts": {
@@ -14,9 +14,9 @@
     "expo-module": "expo-module"
   },
   "sideEffects": false,
-  "author": "",
+  "author": "PLAID, Inc.",
+  "homepage": "https://karte.io",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/nkmrh/config-plugin-sample",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/YOU/expo-YOUR_PACKAGE.git"
