@@ -19,7 +19,7 @@ function copyKarteXml(
     );
   }
   const srcPath = path.resolve(config.modRequest.projectRoot , props.karteXml);
-  const destPath = path.resolve(config.modRequest.platformProjectRoot, 'app/src/main/res/karte.xml');
+  const destPath = path.resolve(config.modRequest.platformProjectRoot, 'app/src/main/res/values/karte.xml');
   
   fs.copyFileSync(srcPath, destPath);
 }
