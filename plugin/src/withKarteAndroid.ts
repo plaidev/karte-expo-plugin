@@ -9,20 +9,6 @@ import { ConfigProps } from "./types";
 import path from 'path';
 import fs from 'fs';
 
-function copyKarteXml(
-  config: ExportedConfigWithProps,
-  props: ConfigProps
-) {
-  if (!props.karteXml) {
-    throw new Error(
-      'Path to karte.xml is not defined. Please specify the `expo.android.karteXml` field in app.json.',
-    );
-  }
-  const srcPath = path.resolve(config.modRequest.projectRoot , props.karteXml);
-  const destPath = path.resolve(config.modRequest.platformProjectRoot, 'app/src/main/res/values/karte.xml');
-  fs.copyFileSync(srcPath, destPath);
-}
-
 export const withKarteAndroid: ConfigPlugin<ConfigProps> = (config, props) => {
   config = withDangerousMod(config, [
     'android',
@@ -40,4 +26,19 @@ export const withKarteAndroid: ConfigPlugin<ConfigProps> = (config, props) => {
     return config;
   });
   return config;
+};
+
+
+function copyKarteXml(
+  config: ExportedConfigWithProps,
+  props: ConfigProps
+) {
+  if (!props.karteXml) {
+    throw new Error(
+      'Path to karte.xml is not defined. Please specify the `expo.android.karteXml` field in app.json.',
+    );
+  }
+  const srcPath = path.resolve(config.modRequest.projectRoot , props.karteXml);
+  const destPath = path.resolve(config.modRequest.platformProjectRoot, 'app/src/main/res/values/karte.xml');
+  fs.copyFileSync(srcPath, destPath);
 };
