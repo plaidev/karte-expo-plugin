@@ -4,14 +4,15 @@ import {
   AndroidConfig,
   withGradleProperties,
   ExportedConfigWithProps,
-} from "expo/config-plugins";
+} from "@expo/config-plugins";
+import fs from "fs";
+import path from "path";
+
 import { ConfigProps } from "./types";
-import path from 'path';
-import fs from 'fs';
 
 export const withKarteAndroid: ConfigPlugin<ConfigProps> = (config, props) => {
   config = withDangerousMod(config, [
-    'android',
+    "android",
     (config) => {
       copyKarteXml(config, props);
       return config;
@@ -28,17 +29,16 @@ export const withKarteAndroid: ConfigPlugin<ConfigProps> = (config, props) => {
   return config;
 };
 
-
-function copyKarteXml(
-  config: ExportedConfigWithProps,
-  props: ConfigProps
-) {
+function copyKarteXml(config: ExportedConfigWithProps, props: ConfigProps) {
   if (!props.karteXml) {
     throw new Error(
-      'Path to karte.xml is not defined. Please specify the `expo.android.karteXml` field in app.json.',
+      "Path to karte.xml is not defined. Please specify the `expo.android.karteXml` field in app.json."
     );
   }
-  const srcPath = path.resolve(config.modRequest.projectRoot , props.karteXml);
-  const destPath = path.resolve(config.modRequest.platformProjectRoot, 'app/src/main/res/values/karte.xml');
+  const srcPath = path.resolve(config.modRequest.projectRoot, props.karteXml);
+  const destPath = path.resolve(
+    config.modRequest.platformProjectRoot,
+    "app/src/main/res/values/karte.xml"
+  );
   fs.copyFileSync(srcPath, destPath);
-};
+}
