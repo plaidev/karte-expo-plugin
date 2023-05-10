@@ -23,7 +23,20 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.example"
+      "package": "com.anonymous.example",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "https",
+              "host": "karte.io",
+              "pathPrefix": "/"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -33,13 +46,7 @@
         "karte-expo-plugin",
         {
           "karteInfoPlist": "./Karte-Info.plist",
-          "karteXml": "./karte.xml",
-          "intentFilters": [
-            {
-              "activity": ".MainActivity",
-              "scheme": "com.anonymous.example"
-            }
-          ]
+          "karteXml": "./karte.xml"
         }
       ]
     ]
