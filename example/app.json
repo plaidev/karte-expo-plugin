@@ -33,7 +33,13 @@
         "karte-expo-plugin",
         {
           "karteInfoPlist": "./Karte-Info.plist",
-          "karteXml": "./karte.xml"
+          "karteXml": "./karte.xml",
+          "intentFilters": [
+            {
+              "activity": ".MainActivity",
+              "scheme": "com.anonymous.example"
+            }
+          ]
         }
       ]
     ]
