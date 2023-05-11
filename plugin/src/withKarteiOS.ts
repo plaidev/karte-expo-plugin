@@ -9,10 +9,7 @@ import path from "path";
 
 import { ConfigProps } from "./types";
 
-export const withKarteiOS: ConfigPlugin<ConfigProps> = (
-  config,
-  props
-) => {
+export const withKarteiOS: ConfigPlugin<ConfigProps> = (config, props) => {
   return withXcodeProject(config, (config) => {
     if (!props?.karteInfoPlist) {
       throw new Error(
@@ -58,4 +55,4 @@ function setKarteInfoPlist(
     });
   }
   return project;
-};
+}
