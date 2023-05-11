@@ -1,2 +1,2 @@
-/** @type {import("ts-jest/dist/types").InitialOptionsTsJest} */
-module.exports = require('expo-module-scripts/jest-preset-plugin');
+/** @type {import("ts-jest/dist/types").JestConfigWithTsJest} */
+module.exports = require("expo-module-scripts/jest-preset-plugin");

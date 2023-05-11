@@ -1,1 +1,1 @@
-module.exports = require('./build/withKarte');
+module.exports = require("./build/withKarte");
