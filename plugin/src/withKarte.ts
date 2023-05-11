@@ -1,5 +1,4 @@
-import { ConfigPlugin, createRunOncePlugin } from "@expo/config-plugins";
-
+import { ConfigPlugin, createRunOncePlugin } from "expo/config-plugins";
 import { ConfigProps } from "./types";
 import { withKarteAndroid } from "./withKarteAndroid";
 import { withKarteiOS } from "./withKarteiOS";

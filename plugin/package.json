@@ -33,7 +33,15 @@
     "karte-react-native"
   ],
   "devDependencies": {
-    "expo-module-scripts": "^3.0.7"
+    "@types/jest": "^29.5.1",
+    "expo": "^47.0.0",
+    "expo-module-scripts": "^3.0.7",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "expo": ">=47.0.0"
   },
   "peerDependenciesMeta": {
     "expo": {
