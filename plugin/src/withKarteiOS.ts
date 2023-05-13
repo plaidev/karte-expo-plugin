@@ -32,7 +32,7 @@ function setKarteInfoPlist(
   karteInfoPlistPath: string
 ): XcodeProject {
   const karteInfoPlistFilePath = path.resolve(projectRoot, karteInfoPlistPath);
-
+  console.log("KOKO");
   if (!fs.existsSync(karteInfoPlistFilePath)) {
     throw new Error(
       `Karte-Info.plist doesn't exist in ${karteInfoPlistFilePath}. Place it there or configure the path in app.json`
