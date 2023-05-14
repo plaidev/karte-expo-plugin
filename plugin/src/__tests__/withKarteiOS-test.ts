@@ -49,6 +49,7 @@ const mockXcodeProject = (mock: XcodeProject) => {
 };
 
 const exp = { name: "foo", slug: "bar" };
+
 describe(withKarteiOS, () => {
   beforeEach(() => {
     (withXcodeProject as any).mockClear();
@@ -61,13 +62,13 @@ describe(withKarteiOS, () => {
     });
     expect(() =>
       withKarteiOS(exp, {
-        karteInfoPlist: "info.plist",
+        karteInfoPlist: "karte.plist",
         karteXml: "",
       })
     ).not.toThrow();
   });
 
-  it("should throw if plist path is set", () => {
+  it("should throw if plist path is not set", () => {
     mockXcodeProject({});
     jest.spyOn(fs, "existsSync").mockImplementation((_: any) => {
       return true;
@@ -84,7 +85,7 @@ describe(withKarteiOS, () => {
     });
     expect(() =>
       withKarteiOS(exp, {
-        karteInfoPlist: "info.plist",
+        karteInfoPlist: "karte.plist",
         karteXml: "",
       })
     ).toThrow(/Karte-Info.plist doesn't exist/);

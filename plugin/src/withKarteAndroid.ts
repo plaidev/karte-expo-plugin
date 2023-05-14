@@ -35,10 +35,16 @@ function copyKarteXml(config: ExportedConfigWithProps, props: ConfigProps) {
       "Path to karte.xml is not defined. Please specify the `expo.android.karteXml` field in app.json."
     );
   }
-  const srcPath = path.resolve(config.modRequest.projectRoot, props.karteXml);
+  const xmlPath = path.resolve(config.modRequest.projectRoot, props.karteXml);
+  if (!fs.existsSync(xmlPath)) {
+    throw new Error(
+      `karte.xml doesn't exist in ${xmlPath}. Place it there or configure the path in app.json`
+    );
+  }
+
   const destPath = path.resolve(
     config.modRequest.platformProjectRoot,
     "app/src/main/res/values/karte.xml"
   );
-  fs.copyFileSync(srcPath, destPath);
+  fs.copyFileSync(xmlPath, destPath);
 }
