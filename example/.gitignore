@@ -19,3 +19,11 @@ web-build/
 # expo eject
 ./android
 ./ios
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
