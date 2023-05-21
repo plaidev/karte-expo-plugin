@@ -8,6 +8,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-firebase/app": "^17.5.0",
+    "@react-native-firebase/messaging": "^17.5.0",
     "@react-native-karte/core": "^1.4.0",
     "@react-native-karte/in-app-messaging": "^1.2.0",
     "expo": "~48.0.15",
