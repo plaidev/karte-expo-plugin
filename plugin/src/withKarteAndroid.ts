@@ -22,7 +22,7 @@ export const withKarteAndroid: ConfigPlugin<ConfigProps> = (config, props) => {
     AndroidConfig.BuildProperties.updateAndroidBuildProperty(
       config.modResults,
       "android.kotlinVersion",
-      "1.5.20"
+      "1.6.10"
     );
     return config;
   });
