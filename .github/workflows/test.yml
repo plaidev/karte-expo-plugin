@@ -23,6 +23,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
+          cache-dependency-path: ./plugin/yarn.lock
       - run: corepack enable
       - run: yarn && yarn build
       - run: yarn test
