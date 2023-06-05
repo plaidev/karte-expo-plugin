@@ -1,29 +1,50 @@
 # plugin
 
-Put a description of your Unimodule here
+This is [Config plugins](https://docs.expo.dev/config-plugins/introduction/) and [Expo Modules API](https://docs.expo.dev/modules/overview/) implementation for [karte-react-native](https://github.com/plaidev/karte-react-native/).
 
-# API documentation
+This plugin automatically initializes Karte SDK and sets up to receive push notifications.
 
-- [Documentation for the main branch](https://github.com/expo/expo/blob/main/docs/pages/versions/unversioned/sdk/plugin.md)
-- [Documentation for the latest stable release](https://docs.expo.dev/versions/latest/sdk/plugin/)
+# Installation
 
-# Installation in managed Expo projects
-
-For [managed](https://docs.expo.dev/versions/latest/introduction/managed-vs-bare/) Expo projects, please follow the installation instructions in the [API documentation for the latest stable release](#api-documentation). If you follow the link and there is no documentation available then this library is not yet usable within managed projects &mdash; it is likely to be included in an upcoming Expo SDK release.
-
-# Installation in bare React Native projects
-
-For bare React Native projects, you must ensure that you have [installed and configured the `expo` package](https://docs.expo.dev/bare/installing-expo-modules/) before continuing.
-
-### Add the package to your npm dependencies
-
+Add the plugin to your expo project.
 ```
-npm install plugin
+npm install karte-expo-plugin
 ```
 
+# Develop
 
+## Prerequisite
 
+- node v18.x
+- yarn
 
-# Contributing
+## Install node packages
 
-Contributions are very welcome! Please refer to guidelines described in the [contributing guide]( https://github.com/expo/expo#contributing).
+```
+yarn install
+```
+
+## Build
+
+```
+yarn build
+```
+
+## Test
+
+```
+yarn test
+```
+
+## Directories
+
+- ./src
+
+  - [Config plugins](https://docs.expo.dev/config-plugins/introduction/) implementation.
+
+- ./android
+
+  - [Expo Modules API](https://docs.expo.dev/modules/overview/) implementation for Android.
+
+- ./ios
+  - [Expo Modules API](https://docs.expo.dev/modules/overview/) implementation for iOS.
