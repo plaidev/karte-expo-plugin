@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 7
+  version: 6
   cacheKey: 9
 
 "@0no-co/graphql.web@npm:^1.0.1":
@@ -4365,19 +4365,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example@workspace:."
   dependencies:
-    "@babel/core": "npm:^7.20.0"
-    "@react-native-firebase/app": "npm:^17.5.0"
-    "@react-native-firebase/messaging": "npm:^17.5.0"
-    "@react-native-karte/core": "npm:^1.4.0"
-    "@react-native-karte/in-app-messaging": "npm:^1.2.0"
-    "@react-native-karte/notification": "npm:^1.2.0"
-    expo: "npm:~48.0.18"
-    expo-build-properties: "npm:^0.6.0"
-    expo-splash-screen: "npm:~0.18.2"
-    expo-status-bar: "npm:~1.4.4"
+    "@babel/core": ^7.20.0
+    "@react-native-firebase/app": ^17.5.0
+    "@react-native-firebase/messaging": ^17.5.0
+    "@react-native-karte/core": ^1.4.0
+    "@react-native-karte/in-app-messaging": ^1.2.0
+    "@react-native-karte/notification": ^1.2.0
+    expo: ~48.0.18
+    expo-build-properties: ^0.6.0
+    expo-splash-screen: ~0.18.2
+    expo-status-bar: ~1.4.4
     karte-expo-plugin: "file:../plugin"
-    react: "npm:18.2.0"
-    react-native: "npm:0.71.8"
+    react: 18.2.0
+    react-native: 0.71.8
   languageName: unknown
   linkType: soft
 
@@ -4629,13 +4629,13 @@ __metadata:
   linkType: hard
 
 "fast-xml-parser@npm:^4.0.12":
-  version: 4.2.3
-  resolution: "fast-xml-parser@npm:4.2.3"
+  version: 4.2.4
+  resolution: "fast-xml-parser@npm:4.2.4"
   dependencies:
-    strnum: "npm:^1.0.5"
+    strnum: ^1.0.5
   bin:
     fxparser: src/cli/cli.js
-  checksum: f3d70c869a2f5aae17fe81448faa753562a5dde105a12e131d51786c911cfdfff12278935de07a3a36662834a9439b35ad54b43a266cdb1e5474a5d127368d11
+  checksum: 8/d3b4d0c0152c09f98def792769fca6bb3fa1d597f9745d9564451c239089bd86bdf573c9263b4944860028cb7edb81752d64399c1aff8b87c9225ecef96905f7
   languageName: node
   linkType: hard
 
@@ -4929,9 +4929,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@npm%3A^2.3.2#optional!builtin<compat/fsevents>":
+"fsevents@patch:fsevents@npm%3A^2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#optional!builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
   dependencies:
     node-gyp: "npm:latest"
   conditions: os=darwin
@@ -6061,13 +6061,13 @@ __metadata:
 
 "karte-expo-plugin@file:../plugin::locator=example%40workspace%3A.":
   version: 0.1.0
-  resolution: "karte-expo-plugin@file:../plugin#../plugin::hash=720e0d&locator=example%40workspace%3A."
+  resolution: "karte-expo-plugin@file:../plugin#../plugin::hash=d85ecb&locator=example%40workspace%3A."
   peerDependencies:
     expo: ">=47.0.0"
   peerDependenciesMeta:
     expo:
       optional: true
-  checksum: baad7c4ec0d244fa05f8b2d5c2ec649846cf06c391d24ec9dab883d9f152a3f301276b8e757be822f1d364296d7be38080ad41644da1a38acadbbecca53bd145
+  checksum: 8/c3aedf2ea04244d8c1de443a9df647f3572544fc19102e6f69376994f8bfb27ffa00db1faae3b93b658f0b58ba30b0d39e9621bfdb7a7ad80a1c77277157ddc4
   languageName: node
   linkType: hard
 
@@ -8125,25 +8125,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^1.13.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^1.13.1#~builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#~builtin<compat/resolve>":
   version: 1.22.2
-  resolution: "resolve@patch:resolve@npm%3A1.22.2#optional!builtin<compat/resolve>::version=1.22.2&hash=c3c19d"
+  resolution: "resolve@patch:resolve@npm%3A1.22.2#~builtin<compat/resolve>::version=1.22.2&hash=c3c19d"
   dependencies:
     is-core-module: "npm:^2.11.0"
     path-parse: "npm:^1.0.7"
     supports-preserve-symlinks-flag: "npm:^1.0.0"
   bin:
     resolve: bin/resolve
-  checksum: 58838d3b80cac9bc3386d09c058e91c6169659ba8d42a01698e149bd27a7e3c1557c46e1d0e2bde1b426731ee46bf17d3a8e750c2ae78c093129891b39886c20
+  checksum: 8/66cc788f13b8398de18eb4abb3aed90435c84bb8935953feafcf7231ba4cd191b2c10b4a87b1e9681afc34fb138c705f91f7330ff90bfa36f457e5584076a2b8
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A~1.7.1#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A~1.7.1#~builtin<compat/resolve>":
   version: 1.7.1
-  resolution: "resolve@patch:resolve@npm%3A1.7.1#optional!builtin<compat/resolve>::version=1.7.1&hash=3bafbf"
+  resolution: "resolve@patch:resolve@npm%3A1.7.1#~builtin<compat/resolve>::version=1.7.1&hash=3bafbf"
   dependencies:
     path-parse: "npm:^1.0.5"
-  checksum: 57c9fa757e17ca338f23b116d41738d8edbea63d3bb22d166dedd545553a9f6c7d3d2fd29c05d16c0284eca6a9dfd36516287d359dd1d5e31e1367f6c0d19ad4
+  checksum: 8/c2a6f0e3856ac1ddc8297091c20ca6c36d99bf289ddea366c46bd2a7ed8b31075c7f9d01ff5d390ebed1fe41b9fabe57a79ae087992ba92e3592f0c3be07c1ac
   languageName: node
   linkType: hard
 
