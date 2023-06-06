@@ -54,3 +54,7 @@ yarn test
 
 - ios
   - [Expo Modules API](https://docs.expo.dev/modules/overview/) implementation for iOS.
+
+## Project for development
+
+`../example` directory is the Expo project for development. You can use this project to check the functions.

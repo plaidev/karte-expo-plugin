@@ -11,8 +11,7 @@
     "test": "expo-module test",
     "prepare": "expo-module prepare",
     "prepublishOnly": "expo-module prepublishOnly",
-    "expo-module": "expo-module",
-    "docs": "typedoc --entryPointStrategy expand ./src --excludePrivate"
+    "expo-module": "expo-module"
   },
   "sideEffects": false,
   "author": "PLAID, Inc.",
