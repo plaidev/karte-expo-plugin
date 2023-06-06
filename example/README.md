@@ -1,10 +1,14 @@
 # example
 
-An Expo example project showing that karte-expo-plugin works.
+An Expo example project showing that `karte-expo-plugin` works.
+
+## Prerequisite
+
+To install this plugin, the prerequisites `@react-native-firebase/app` and `@react-native-firebase/messaging` must be installed first. Please refer to the react-native-firebase [documentation](https://rnfirebase.io/) for details.
 
 ## Plugin options
 
-Specify the path of the configuration file to the plugin in the `app.json` file like this.
+You should specify the path of the karte configuration files to the plugin in the `app.json` file like this.
 
 ```json
 "plugins": [
