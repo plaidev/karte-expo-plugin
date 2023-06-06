@@ -1,10 +1,16 @@
 # plugin
 
-[Config plugins](https://docs.expo.dev/config-plugins/introduction/) and [Expo Modules API](https://docs.expo.dev/modules/overview/) implementation for [karte-react-native](https://github.com/plaidev/karte-react-native/).
+This repository includes the implementation of a [Config plugins](https://docs.expo.dev/config-) for [karte-react-native](https://github.com/plaidev/karte-react-native/plugins/introduction/), as well as the implementation of the [Expo Modules API](https://docs.expo.dev/modules/overview/) for karte-react-native.
 
-This plugin automatically initializes KARTE Native SDKs and sets up to receive push notifications.
+This plugin automatically initializes KARTE SDK and configures settings for receiving push notifications.
 
 # Installation
+
+## Prerequisite
+
+To install this plugin, the prerequisites `@react-native-firebase/app` and `@react-native-firebase/messaging` must be installed first. Please refer to the react-native-firebase [documentation](https://rnfirebase.io/) for details.
+
+## Install plugin
 
 Add the plugin to your expo project.
 ```sh
@@ -36,15 +42,15 @@ yarn build
 yarn test
 ```
 
-## Directories
+## Source directories
 
-- ./src
+- src
 
   - [Config plugins](https://docs.expo.dev/config-plugins/introduction/) implementation.
 
-- ./android
+- android
 
   - [Expo Modules API](https://docs.expo.dev/modules/overview/) implementation for Android.
 
-- ./ios
+- ios
   - [Expo Modules API](https://docs.expo.dev/modules/overview/) implementation for iOS.
