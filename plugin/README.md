@@ -2,7 +2,7 @@
 
 [Config plugins](https://docs.expo.dev/config-plugins/introduction/) and [Expo Modules API](https://docs.expo.dev/modules/overview/) implementation for [karte-react-native](https://github.com/plaidev/karte-react-native/).
 
-This plugin automatically initializes Karte SDK and sets up to receive push notifications.
+This plugin automatically initializes KARTE Native SDKs and sets up to receive push notifications.
 
 # Installation
 

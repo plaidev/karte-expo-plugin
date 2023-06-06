@@ -8,7 +8,7 @@ To install this plugin, the prerequisites `@react-native-firebase/app` and `@rea
 
 ## Plugin options
 
-You should specify the path of the karte configuration files to the plugin in the `app.json` file like this.
+You should specify the path of the KARTE configuration files to the plugin in the `app.json` file like this.
 
 ```json
 "plugins": [
