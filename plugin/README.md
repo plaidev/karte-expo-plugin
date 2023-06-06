@@ -1,14 +1,14 @@
 # plugin
 
-This is [Config plugins](https://docs.expo.dev/config-plugins/introduction/) and [Expo Modules API](https://docs.expo.dev/modules/overview/) implementation for [karte-react-native](https://github.com/plaidev/karte-react-native/).
+[Config plugins](https://docs.expo.dev/config-plugins/introduction/) and [Expo Modules API](https://docs.expo.dev/modules/overview/) implementation for [karte-react-native](https://github.com/plaidev/karte-react-native/).
 
 This plugin automatically initializes Karte SDK and sets up to receive push notifications.
 
 # Installation
 
 Add the plugin to your expo project.
-```
-npm install karte-expo-plugin
+```sh
+yarn add karte-expo-plugin
 ```
 
 # Develop
@@ -20,13 +20,13 @@ npm install karte-expo-plugin
 
 ## Install node packages
 
-```
+```sh
 yarn install
 ```
 
 ## Build
 
-```
+```sh
 yarn build
 ```
 
