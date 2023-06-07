@@ -50,4 +50,3 @@ app.json ファイルに、設定ファイルのパスを指定します。
 ```sh
 npx expo prebuild --clean
 ```
-
