@@ -58,3 +58,5 @@ yarn test
 ## Project for development
 
 `../example` directory is the Expo project for development. You can use this project to check the functions.
+
+# Release

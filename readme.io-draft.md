@@ -2,6 +2,8 @@
 
 1. プロジェクトを Managed Workflow で開発する場合は、下記パッケージをインストールします。
 
+※ `karte-expo-plugin` では `@react-native-karte/core` `@react-native-karte/in-app-messaging` `@react-native-karte/notification` の導入が必須です。
+
 ```sh
 npm install @react-native-karte/notification
 npm install @react-native-karte/in-app-messaging
@@ -50,4 +52,3 @@ app.json ファイルに、設定ファイルのパスを指定します。
 ```sh
 npx expo prebuild --clean
 ```
-
