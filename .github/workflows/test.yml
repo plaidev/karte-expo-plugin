@@ -7,8 +7,10 @@ on:
     branches: [ main ]
 
 jobs:
+  setup:
+    - uses: plaidev/karte-expo-plugin/.github/workflows/setup.yml@main
   test:
     runs-on: ubuntu-latest
+    needs: setup
     steps:
-      - uses: plaidev/karte-expo-plugin/.github/workflows/setup.yml@main
       - run: yarn test
