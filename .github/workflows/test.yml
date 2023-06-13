@@ -8,7 +8,7 @@ on:
 
 jobs:
   setup:
-    uses: ./.github/workflows/setup.yml@main
+    uses: ./.github/workflows/setup.yml
 
   test:
     runs-on: ubuntu-latest
