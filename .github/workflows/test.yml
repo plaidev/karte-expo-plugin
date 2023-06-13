@@ -11,6 +11,10 @@ jobs:
     uses: plaidev/karte-expo-plugin/.github/workflows/setup.yml@main
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: plugin
     needs: setup
     steps:
       - run: yarn test
