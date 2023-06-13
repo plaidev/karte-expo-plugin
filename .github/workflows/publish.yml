@@ -6,8 +6,8 @@ on:
 
 jobs:
   publish:
-    uses: ./.github/workflows/setup.yml
     steps:
+      - uses: ./.github/workflows/setup.yml
       - run: yarn test
       - run: yarn publish
         env:
