@@ -60,3 +60,9 @@ yarn test
 `../example` directory is the Expo project for development. You can use this project to check the functions.
 
 # Release
+
+1. Login: Run `npm login` from the command line to log in to npm. Enter the username and password you set up when you created your account.
+
+1. Publish the package: When everything is ready, run the `npm publish` command to publish the package.
+
+1. To update the version of the published package, you must use the npm version command to increase the version number and run `npm publish` again.
