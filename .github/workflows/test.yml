@@ -13,10 +13,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: setup
-    defaults:
-      run:
-        shell: bash
-        working-directory: plugin
     steps:
       - run: ls
       - run: yarn test
