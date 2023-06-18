@@ -1,14 +1,20 @@
-name: Publish Package to npmjs
-
-on:
-  release:
-    types: [published]
-
 jobs:
   publish:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: plugin
     steps:
-      - uses: plaidev/karte-expo-plugin/.github/workflows/setup.yml@main
+      - uses: actions/checkout@v3
+      - name: test ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+          cache-dependency-path: ./plugin/yarn.lock
+      - run: corepack enable
+      - run: yarn && yarn build
       - run: yarn test
       - run: yarn publish
         env:
