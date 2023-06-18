@@ -1,3 +1,9 @@
+name: Publish plugin to npmjs
+
+on:
+  release:
+    types: [published]
+
 jobs:
   publish:
     runs-on: ubuntu-latest
