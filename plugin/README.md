@@ -61,8 +61,19 @@ yarn test
 
 # Release
 
-1. Login: Run `npm login` from the command line to log in to npm. Enter the username and password you set up when you created your account.
+## 1. Update plugin version
 
-1. Publish the package: When everything is ready, run the `npm publish` command to publish the package.
+```sh
+yarn version <strategy>
+```
 
-1. To update the version of the published package, you must use the npm version command to increase the version number and run `npm publish` again.
+## 2. Create tag
+
+```sh
+git tag -a <version>
+git push origin <version>
+```
+
+## 3. Create release from tag
+
+Create a release in [releases](https://github.com/plaidev/karte-expo-plugin/releases). Then the [publish workflow](https://github.com/plaidev/karte-expo-plugin/blob/main/.github/workflows/publish.yml) is run and the package is published.
