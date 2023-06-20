@@ -15,10 +15,9 @@ jobs:
         working-directory: plugin
     steps:
       - uses: actions/checkout@v3
-      - name: test ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '18.x'
           cache: 'yarn'
           cache-dependency-path: ./plugin/yarn.lock
       - run: corepack enable
