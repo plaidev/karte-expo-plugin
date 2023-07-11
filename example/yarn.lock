@@ -4629,13 +4629,13 @@ __metadata:
   linkType: hard
 
 "fast-xml-parser@npm:^4.0.12":
-  version: 4.2.4
-  resolution: "fast-xml-parser@npm:4.2.4"
+  version: 4.2.5
+  resolution: "fast-xml-parser@npm:4.2.5"
   dependencies:
     strnum: ^1.0.5
   bin:
     fxparser: src/cli/cli.js
-  checksum: 8/d3b4d0c0152c09f98def792769fca6bb3fa1d597f9745d9564451c239089bd86bdf573c9263b4944860028cb7edb81752d64399c1aff8b87c9225ecef96905f7
+  checksum: 8/d32b22005504eeb207249bf40dc82d0994b5bb9ca9dcc731d335a1f425e47fe085b3cace3cf9d32172dd1a5544193c49e8615ca95b4bf95a4a4920a226b06d80
   languageName: node
   linkType: hard
 
@@ -6061,13 +6061,13 @@ __metadata:
 
 "karte-expo-plugin@file:../plugin::locator=example%40workspace%3A.":
   version: 0.1.0
-  resolution: "karte-expo-plugin@file:../plugin#../plugin::hash=d85ecb&locator=example%40workspace%3A."
+  resolution: "karte-expo-plugin@file:../plugin#../plugin::hash=ecee4e&locator=example%40workspace%3A."
   peerDependencies:
     expo: ">=47.0.0"
   peerDependenciesMeta:
     expo:
       optional: true
-  checksum: 8/c3aedf2ea04244d8c1de443a9df647f3572544fc19102e6f69376994f8bfb27ffa00db1faae3b93b658f0b58ba30b0d39e9621bfdb7a7ad80a1c77277157ddc4
+  checksum: 8/9719838ccb468c1c7484934360de9afbe03473efe4afd011386c932ae73ac0a559e9b78a279e5f44258f639c8f526e65cbb063b3c59eee7154a87da1e06dbe17
   languageName: node
   linkType: hard
 
