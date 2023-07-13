@@ -22,6 +22,6 @@ jobs:
       - run: corepack enable
       - run: yarn && yarn build
       - run: yarn test
-      - run: npm publish
+      - run: yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
