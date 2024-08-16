@@ -61,15 +61,17 @@ afterEvaluate {
 android {
   compileSdkVersion safeExtGet("compileSdkVersion", 33)
 
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_11
-    targetCompatibility JavaVersion.VERSION_11
-  }
+  def agpVersion = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION
+  if (agpVersion.tokenize('.')[0].toInteger() < 8) {
+    compileOptions {
+      sourceCompatibility JavaVersion.VERSION_11
+      targetCompatibility JavaVersion.VERSION_11
+    }
 
-  kotlinOptions {
-    jvmTarget = JavaVersion.VERSION_11.majorVersion
+    kotlinOptions {
+      jvmTarget = JavaVersion.VERSION_11.majorVersion
+    }
   }
-
   defaultConfig {
     minSdkVersion safeExtGet("minSdkVersion", 21)
     targetSdkVersion safeExtGet("targetSdkVersion", 33)
@@ -78,6 +80,16 @@ android {
   }
   lintOptions {
     abortOnError false
+  }
+}
+
+kotlin {
+  jvmToolchain(11)
+}
+
+java {
+  toolchain {
+    languageVersion.set(JavaLanguageVersion.of(11))
   }
 }
 
