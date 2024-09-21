@@ -14,12 +14,12 @@
     "@react-native-karte/in-app-messaging": "^1.2.0",
     "@react-native-karte/notification": "^1.2.0",
     "expo": "^51.0.32",
-    "expo-build-properties": "^0.6.0",
-    "expo-splash-screen": "~0.20.4",
-    "expo-status-bar": "~1.4.4",
+    "expo-build-properties": "~0.12.5",
+    "expo-splash-screen": "~0.27.5",
+    "expo-status-bar": "~1.12.1",
     "karte-expo-plugin": "file:../plugin",
     "react": "18.2.0",
-    "react-native": "0.71.8"
+    "react-native": "0.74.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
