@@ -1,8 +1,6 @@
 import {
   ConfigPlugin,
   withDangerousMod,
-  AndroidConfig,
-  withGradleProperties,
   ExportedConfigWithProps,
 } from "expo/config-plugins";
 import fs from "fs";
@@ -18,14 +16,6 @@ export const withKarteAndroid: ConfigPlugin<ConfigProps> = (config, props) => {
       return config;
     },
   ]);
-  config = withGradleProperties(config, (config) => {
-    AndroidConfig.BuildProperties.updateAndroidBuildProperty(
-      config.modResults,
-      "android.kotlinVersion",
-      "1.6.10"
-    );
-    return config;
-  });
   return config;
 };
 
