@@ -1,6 +1,6 @@
 {
   "name": "karte-expo-plugin",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Config plugin for karte-react-native package",
   "main": "build/withKarte.js",
   "types": "build/withKarte.d.ts",
