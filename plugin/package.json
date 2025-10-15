@@ -5,10 +5,10 @@
   "main": "build/withKarte.js",
   "types": "build/withKarte.d.ts",
   "scripts": {
-    "build": "expo-module build",
+    "build": "EXPO_NONINTERACTIVE=1 expo-module build",
     "clean": "expo-module clean",
     "lint": "expo-module lint",
-    "test": "expo-module test",
+    "test": "EXPO_NONINTERACTIVE=1 expo-module test",
     "prepare": "expo-module prepare",
     "prepublishOnly": "expo-module prepublishOnly",
     "expo-module": "expo-module"
@@ -44,5 +44,6 @@
     "expo": {
       "optional": true
     }
-  }
+  },
+  "packageManager": "yarn@4.10.3"
 }
