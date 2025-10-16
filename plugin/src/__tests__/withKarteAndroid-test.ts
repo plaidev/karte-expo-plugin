@@ -5,7 +5,7 @@ import { withKarteAndroid } from "../withKarteAndroid";
 jest.mock("fs", () => {
   return {
     existsSync: jest.fn(),
-    copyFileSync: jest.fn(),
+    readFileSync: jest.fn(),
     promises: {
       readFile: jest.fn(),
     },
@@ -21,11 +21,16 @@ jest.mock("path", () => {
 jest.mock("@expo/config-plugins", () => {
   return {
     ...(jest.requireActual("@expo/config-plugins") as object),
-    withDangerousMod: jest.fn().mockImplementation((config, [_, callback]) =>
+    withStringsXml: jest.fn().mockImplementation((config, callback) =>
       callback({
         ...config,
         modRequest: {
           projectRoot: "projectRoot",
+        },
+        modResults: {
+          resources: {
+            string: [],
+          },
         },
       })
     ),
@@ -35,10 +40,19 @@ jest.mock("@expo/config-plugins", () => {
 
 const exp = { name: "foo", slug: "bar" };
 
+const mockKarteXmlContent = `<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="karte_app_key">test_app_key</string>
+    <string name="karte_app_key_2">test_app_key_2</string>
+</resources>`;
+
 describe(withKarteAndroid, () => {
   it("should not throw if xml path is set", () => {
     jest.spyOn(fs, "existsSync").mockImplementation((_: any) => {
       return true;
+    });
+    jest.spyOn(fs, "readFileSync").mockImplementation((_: any) => {
+      return mockKarteXmlContent;
     });
     expect(() =>
       withKarteAndroid(exp, {
