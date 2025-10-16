@@ -90,5 +90,6 @@ repositories {
 dependencies {
   implementation project(':expo-modules-core')
   implementation project(':react-native-karte_core')
+  implementation project(':react-native-karte_in-app-messaging')
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${getKotlinVersion()}"
 }

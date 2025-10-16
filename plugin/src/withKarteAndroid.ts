@@ -1,12 +1,19 @@
 import {
   ConfigPlugin,
   withDangerousMod,
+  withAndroidManifest,
   ExportedConfigWithProps,
+  AndroidConfig,
 } from "expo/config-plugins";
 import fs from "fs";
 import path from "path";
 
 import { ConfigProps } from "./types";
+
+const {
+  getMainApplicationOrThrow,
+  addMetaDataItemToMainApplication,
+} = AndroidConfig.Manifest;
 
 export const withKarteAndroid: ConfigPlugin<ConfigProps> = (config, props) => {
   config = withDangerousMod(config, [
@@ -16,6 +23,19 @@ export const withKarteAndroid: ConfigPlugin<ConfigProps> = (config, props) => {
       return config;
     },
   ]);
+
+  if (props.isEdgeToEdgeEnabled !== undefined) {
+    config = withAndroidManifest(config, (androidConfig) => {
+      const mainApp = getMainApplicationOrThrow(androidConfig.modResults);
+      addMetaDataItemToMainApplication(
+        mainApp,
+        "KARTE_EDGE_TO_EDGE_ENABLED",
+        props.isEdgeToEdgeEnabled!.toString()
+      );
+      return androidConfig;
+    });
+  }
+
   return config;
 };
 
