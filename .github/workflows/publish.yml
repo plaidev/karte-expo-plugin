@@ -23,6 +23,6 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
-      - run: yarn && yarn build
+      - run: yarn install --immutable && yarn build
       - run: yarn test
       - run: yarn publish
