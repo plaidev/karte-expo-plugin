@@ -1,4 +1,4 @@
-# Releases - xxxx.xx.xx
+# Releases - 2026.08.18
 
 ### karte-expo-plugin 0.1.5
 
