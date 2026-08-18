@@ -1,0 +1,72 @@
+name: Auto-merge release branch
+on:
+  pull_request:
+    types: [edited]
+    branches: [main]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check-that-current-pr-is-complete:
+    if: ${{ github.repository != 'plaidev/karte-expo-plugin' && github.event.pull_request.state == 'open' && startsWith(github.head_ref, 'release/') }}
+    permissions:
+      pull-requests: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      completed: ${{ steps.check-completion.outputs.completed }}
+    steps:
+      - name: Check completion
+        id: check-completion
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        run: |
+          incomplete_task=$(echo "$BODY" | sed -n '/- \[ \]/ p')
+          if [ -z "$incomplete_task" ]; then
+            echo "completed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "completed=false" >> "$GITHUB_OUTPUT"
+          fi
+  perform-merge:
+    permissions:
+      contents: write
+    needs: [check-that-current-pr-is-complete]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: needs.check-that-current-pr-is-complete.outputs.completed == 'true'
+    steps:
+      - name: Generate GitHub App token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        id: app-token
+        with:
+          # TODO: app-id is deprecated in v3.1.0, rename to client-id
+          app-id: ${{ secrets.SHARED_GITHUB_ACTION_AGENT_APP_ID }}
+          private-key: ${{ secrets.SHARED_GITHUB_ACTION_AGENT_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-workflows: write
+      - name: Checkout repository
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Configure Git
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}".insteadOf "https://github.com/${GITHUB_REPOSITORY}"
+          git config user.email "git@users.noreply.github.com"
+          git config user.name "github actions"
+          git fetch
+      - name: Merge release branch into develop
+        run: |
+          git checkout develop
+          git merge origin/${{ github.head_ref }} --no-ff -m "Merge ${{ github.head_ref }} into develop"
+      - name: Push develop
+        run: git push origin develop
+      - name: Merge release branch into main
+        run: |
+          git checkout main
+          git merge origin/${{ github.head_ref }} --no-ff -m "Merge ${{ github.head_ref }} into main"
+      - name: Push main
+        run: git push origin main
