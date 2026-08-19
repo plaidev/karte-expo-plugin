@@ -90,5 +90,7 @@ repositories {
 dependencies {
   implementation project(':expo-modules-core')
   implementation project(':react-native-karte_core')
+  // NOTE: isEdgeToEdgeEnabled is available in the Android SDK from version 2.23.0.
+  implementation 'io.karte.android:inappmessaging:2.23.0'
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${getKotlinVersion()}"
 }
