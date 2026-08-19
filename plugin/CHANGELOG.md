@@ -1,3 +1,13 @@
+# Releases - xxxx.xx.xx
+
+### karte-expo-plugin 0.2.0-beta.0
+
+**🔨CHANGED**
+
+* AndroidのInAppMessagingで、isEdgeToEdgeEnabledオプションが有効化されるようにしました。isEdgeToEdgeEnabledオプションに関しては、以下のページをご参照ください。
+   * https://app.developers.karte.io/app-faq/notes-for-android-environments-with-target-sdk-version-35-later
+
+
 # Releases - 2026.08.18
 
 ### karte-expo-plugin 0.1.5
