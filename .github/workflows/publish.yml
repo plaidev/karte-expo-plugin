@@ -1,27 +1,84 @@
 name: Publish plugin to npmjs
-
 on:
-  release:
-    types: [published]
-
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "パッケージを公開せずに実行"
+        required: true
+        default: true
+        type: boolean
+permissions:
+  id-token: write # Required for OIDC
+  contents: write
 jobs:
   publish:
     runs-on: ubuntu-latest
     timeout-minutes: 40
-    if: github.repository == 'plaidev/karte-expo-plugin'
+    if: ${{ github.repository == 'plaidev/karte-expo-plugin' || inputs.dry_run }}
     defaults:
       run:
         shell: bash
         working-directory: plugin
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+      - name: Checkout repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
-          node-version: '18.x'
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
-      - run: corepack enable
-      - run: yarn && yarn build
-      - run: yarn test
-      - run: yarn publish
+      - name: Configure Git
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}".insteadOf "https://github.com/${GITHUB_REPOSITORY}"
+          git config --global user.name "github actions"
+          git config --global user.email "git@users.noreply.github.com"
+      - name: Read package version
+        id: package_version
+        run: |
+          version="$(jq -er '.version' package.json)"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+      - name: Determine npm dist-tag
+        id: npm_dist_tag
+        env:
+          VERSION: ${{ steps.package_version.outputs.version }}
+        run: |
+          if [[ "${VERSION}" =~ ^[0-9]+\.[0-9]+\.[0-9]+-beta\.[0-9]+$ ]]; then
+            echo "tag=beta" >> "$GITHUB_OUTPUT"
+          elif [[ "${VERSION}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "tag=latest" >> "$GITHUB_OUTPUT"
+          else
+            echo "::error::Unsupported version: ${VERSION}"
+            exit 1
+          fi
+      - name: Check release tag
+        env:
+          TAG: ${{ steps.package_version.outputs.version }}
+        run: |
+          if git ls-remote --tags origin | grep -q "refs/tags/${TAG}$"; then
+            echo "::error::Tag ${TAG} already exists on origin."
+            exit 1
+          fi
+      - name: Create and push release tag
+        if: ${{ !inputs.dry_run }}
+        env:
+          TAG: ${{ steps.package_version.outputs.version }}
+        run: |
+          git tag "${TAG}"
+          git push origin "${TAG}"
+      - name: Install dependencies and build
+        run: yarn install --immutable && yarn build
+      - name: Run tests
+        run: yarn test
+      - name: Publish package
+        if: ${{ !inputs.dry_run }}
+        env:
+          NPM_TAG: ${{ steps.npm_dist_tag.outputs.tag }}
+        run: yarn npm publish --tag "${NPM_TAG}"
+      - name: Publish package (dry-run)
+        if: ${{ inputs.dry_run }}
+        run: yarn npm publish --dry-run

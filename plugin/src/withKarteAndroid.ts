@@ -1,7 +1,7 @@
 import {
   ConfigPlugin,
-  withDangerousMod,
-  ExportedConfigWithProps,
+  withStringsXml,
+  AndroidConfig,
 } from "expo/config-plugins";
 import fs from "fs";
 import path from "path";
@@ -9,17 +9,17 @@ import path from "path";
 import { ConfigProps } from "./types";
 
 export const withKarteAndroid: ConfigPlugin<ConfigProps> = (config, props) => {
-  config = withDangerousMod(config, [
-    "android",
-    (config) => {
-      copyKarteXml(config, props);
-      return config;
-    },
-  ]);
-  return config;
+  return withStringsXml(config, (config) => {
+    config.modResults = mergeKarteXMLToStrings(config, props);
+    return config;
+  });
 };
 
-function copyKarteXml(config: ExportedConfigWithProps, props: ConfigProps) {
+// Merges values in karte.xml into strings.xml.
+function mergeKarteXMLToStrings(
+  config: any,
+  props: ConfigProps
+): AndroidConfig.Resources.ResourceXML {
   if (!props.karteXml) {
     throw new Error(
       "Path to karte.xml is not defined. Please specify the `expo.android.karteXml` field in app.json."
@@ -32,9 +32,17 @@ function copyKarteXml(config: ExportedConfigWithProps, props: ConfigProps) {
     );
   }
 
-  const destPath = path.resolve(
-    config.modRequest.platformProjectRoot,
-    "app/src/main/res/values/karte.xml"
+  const karteXmlContent = fs.readFileSync(xmlPath, "utf-8");
+
+  // Extract string elements using regex pattern matching.
+  const stringRegex = /<string\s+name="([^"]+)"[^>]*>([^<]*)<\/string>/g;
+  const matches = [...karteXmlContent.matchAll(stringRegex)];
+
+  const stringItems: AndroidConfig.Resources.ResourceItemXML[] = matches.map(
+    ([, name, value]) => ({
+      $: { name },
+      _: value,
+    })
   );
-  fs.copyFileSync(xmlPath, destPath);
+  return AndroidConfig.Strings.setStringItem(stringItems, config.modResults);
 }
